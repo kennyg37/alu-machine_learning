@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-""" Implements the determinant function
+""" Implements the minor function
 """
-
 
 # Somehow must be written 3 times to pass checkers
 type_error_message = 'matrix must be a list of lists\n\
@@ -9,31 +8,49 @@ matrix must be a list of lists\n\
 matrix must be a list of lists'
 
 
-def determinant(matrix):
-    """ Calculates the determinant of a given matrix
+def minor(matrix):
+    """ Calculates the minor of a given matrix
 
     Args:
-        matrix: The matrix whose determinant is to be calculated
+        matrix: The matrix whose minors are to be calculated
 
     Returns:
-        float: The determinant of the given matrix.
+        matrix: The matrix of minors of the given matrix.
     """
 
     # Check if it's a matrix
     if not is_matrix(matrix):
         raise TypeError(type_error_message)
 
-    # From this point onwards, we can assume matrix is a valid matrix
-    # Check if it is an empty matrix
-    if is_empty_matrix(matrix):
-        return 1
-
     # Check if it is a square matrix
-    if not is_a_square_matrix(matrix):
-        raise ValueError('matrix must be a square matrix')
+    if is_empty_matrix(matrix) or not is_a_square_matrix(matrix):
+        raise ValueError('matrix must be a non-empty square matrix')
 
-    # Calculate the determinant
-    return calculate_determinant(matrix)
+    minors = []
+    n = len(matrix)
+
+    if len(matrix) == 1 and len(matrix[0]):
+        return [[1]]
+
+    # Loop through each element in the matrix
+    for i in range(n):
+        row = []
+
+        for j in range(n):
+            # Create a submatrix
+            submatrix = exclude_row_and_column_from_matrix(matrix, i, j)
+
+            # Calculate the determinant of the submatrix
+            submatrix_determinant = calculate_determinant(submatrix)
+
+            # Add the determinant of the submatrix to the row
+            row.append(submatrix_determinant)
+
+        # Add row to matrix of minors
+        minors.append(row)
+
+    # Return matrix of minors
+    return minors
 
 
 def calculate_determinant(matrix):
@@ -54,12 +71,12 @@ def calculate_determinant(matrix):
         return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
 
     else:
-        # If it is an n x n matrix, we do the following
+        # If it is an n x n matrix we do the following
         det = 0
         results = []
         n = len(matrix)
 
-        # Loop through the first row of elements
+        # Loop through each element
         for i in range(n):
             # Extract the element from the matrix
             element = matrix[0][i]
@@ -71,7 +88,7 @@ def calculate_determinant(matrix):
             submatrix_determinant = calculate_determinant(submatrix)
 
             # Multiply the determinant of the submatrix with the element
-            # And add to results
+            # And add to the overall determinant
             results.append(element * submatrix_determinant)
 
         for i in range(n):
