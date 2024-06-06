@@ -30,14 +30,15 @@ class Poisson:
             self.lambtha = sum(data) / len(data)
 
     def pmf(self, k):
-        """_summary_
+        """Calculates the value of the PMF for a given number of successes
 
         Args:
-            k (_type_): _description_
+            k (int): number of successes
 
         Returns:
-            _type_: _description_
+            float: the PMF value for k
         """
+        
         if type(k) is not int:
             k = int(k)
         if k < 0:
