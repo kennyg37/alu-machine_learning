@@ -30,7 +30,14 @@ class Poisson:
             self.lambtha = sum(data) / len(data)
 
     def pmf(self, k):
+        """_summary_
 
+        Args:
+            k (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         if type(k) is not int:
             k = int(k)
         if k < 0:
