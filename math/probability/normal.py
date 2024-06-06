@@ -37,3 +37,14 @@ class Normal:
             float: the z-score of x
         """
         return (x - self.mean) / self.stddev
+
+    def x_value(self, z):
+        """Calculates the x-value of a given z-score
+
+        Args:
+            z (int): the z-score
+
+        Returns:
+            float: the x-value of z
+        """
+        return z * self.stddev + self.mean
