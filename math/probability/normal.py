@@ -71,4 +71,5 @@ class Normal:
         Returns:
             float: the CDF value for x
         """
-        return (1 + (Normal.erf((x - self.mean) / (self.stddev * 2 ** 0.5)))) / 2
+        return 1-(Normal.e ** (-((x - self.mean) ** 2) / (2 * self.stddev ** 2))) / (
+            self.stddev * ((2 * Normal.π) ** 0.5)) * 0.5
