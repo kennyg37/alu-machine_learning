@@ -62,6 +62,20 @@ class Normal:
         return (Normal.e ** -((x - self.mean)**2 / (2 * self.stddev ** 2))) / (
             self.stddev * (2 * Normal.π) ** 0.5)
 
+    def erf(self, z):
+        """Approximate the error function using Abramowitz and Stegun formula."""
+        p = 0.3275911
+        a1 = 0.254829592
+        a2 = -0.284496736
+        a3 = 1.421413741
+        a4 = -1.453152027
+        a5 = 1.061405429
+
+        t = 1.0 / (1.0 + p * z)
+        erf_approx = 1 - (a1 * t + a2 * t**2 + a3 * t **
+                          3 + a4 * t**4 + a5 * t**5) * t**4
+        return erf_approx
+
     def cdf(self, x):
         """Calculates the value of the CDF for a given number of successes
 
@@ -71,4 +85,6 @@ class Normal:
         Returns:
             float: the CDF value for x
         """
-        return 1 - Normal.e ** (-self.stddev * x)
+
+        z = (x - self.mean) / (self.stddev * (2 ** 0.5))
+        return (1 + self.erf(z / (2 ** 0.5))) / 2
