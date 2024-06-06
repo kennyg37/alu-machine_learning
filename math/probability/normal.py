@@ -59,5 +59,16 @@ class Normal:
             float: the PDF value for x
         """
 
-        return(Normal.e ** -((x - self.mean)**2 / (2 * self.stddev ** 2))) / (
+        return (Normal.e ** -((x - self.mean)**2 / (2 * self.stddev ** 2))) / (
             self.stddev * (2 * Normal.π) ** 0.5)
+
+    def cdf(self, x):
+        """Calculates the value of the CDF for a given number of successes
+
+        Args:
+            x (int): number of successes
+
+        Returns:
+            float: the CDF value for x
+        """
+        return (1 + (Normal.erf((x - self.mean) / (self.stddev * 2 ** 0.5)))) / 2
