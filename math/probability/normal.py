@@ -59,5 +59,5 @@ class Normal:
             float: the PDF value for x
         """
 
-        return(Normal.e ** -((x - self.mean)**2 / (2 * self.stddev** 2))) / (
+        return(Normal.e ** -((x - self.mean)**2 / (2 * self.stddev ** 2))) / (
             self.stddev * (2 * Normal.π) ** 0.5)
