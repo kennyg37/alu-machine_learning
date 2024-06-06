@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """ The code bellow implements the poisson probability distribution
-mathematically it uses classes and more object oriented 
+mathematically it uses classes and more object oriented
 programming techniques to implement the
-poisson probability distribution. 
+poisson probability distribution.
 """
 
 
 class Poisson:
-    """ Poisson class that represents the poisson probability distribution and
-    calculates the probability of a given number of successes in a fixed interval
-    of time or space. 
+    """ Poisson class that represents the poisson probability
+    distribution and calculates the probability
+    of a given number of successes in a fixed interval
+    of time or space.
     """
     def __init__(self, data=None, lambtha=1.):
         self.data = data
@@ -23,7 +24,4 @@ class Poisson:
                 raise TypeError("data must be a list")
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
-            self.lambtha = sum(data) / len(data)
-            
-            
-        
+            self.lambtha = sum(data) / len(data)        
