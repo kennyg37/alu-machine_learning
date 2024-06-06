@@ -48,3 +48,16 @@ class Normal:
             float: the x-value of z
         """
         return z * self.stddev + self.mean
+
+    def pdf(self, x):
+        """Calculates the value of the PDF for a given number of successes
+
+        Args:
+            x (int): number of successes
+
+        Returns:
+            float: the PDF value for x
+        """
+
+        return (Normal.e ** -((x - self.mean) ** 2 / (2 * self.stddev ** 2))) / (
+            self.stddev * (2 * Normal.π) ** 0.5)
