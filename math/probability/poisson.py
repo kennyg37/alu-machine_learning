@@ -12,6 +12,9 @@ class Poisson:
     of a given number of successes in a fixed interval
     of time or space.
     """
+    π = 3.1415926536
+    e = 2.7182818285
+
     def __init__(self, data=None, lambtha=1.):
         self.data = data
         if data is None:
@@ -25,3 +28,14 @@ class Poisson:
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
             self.lambtha = sum(data) / len(data)
+
+    def pmf(self, k):
+
+        if type(k) is not int:
+            k = int(k)
+        if k < 0:
+            return 0
+        factorial = 1
+        for i in range(1, k + 1):
+            factorial *= i
+        return ((self.lambtha ** k) * (Poisson.e ** -self.lambtha)) / factorial
