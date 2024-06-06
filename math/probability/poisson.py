@@ -38,7 +38,7 @@ class Poisson:
         Returns:
             float: the PMF value for k
         """
-        
+
         if type(k) is not int:
             k = int(k)
         if k < 0:
