@@ -3,6 +3,10 @@
 
 
 class Binomial:
+    """ Binomial distribution class that represents a binomial distribution 
+    for a given number of trials and probability of success
+    """
+
     def __init__(self, data=None, n=1, p=0.5):
         self.data = data
         self.n = int(n)
