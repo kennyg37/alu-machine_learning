@@ -3,23 +3,31 @@
 
 
 class Binomial:
-    """ Binomial distribution class that represents a binomial distribution 
+    """ Binomial distribution class that represents a binomial distribution
     for a given number of trials and probability of success
     """
 
     def __init__(self, data=None, n=1, p=0.5):
-        self.data = data
-        self.n = int(n)
-        self.p = float(p)
-        if data is None:
-            if n < 0:
-                raise ValueError("n must be a positive integer")
-            if p <= 0 or p > 1:
-                raise ValueError("p must be grater than 0 and less than 1")
         if data is not None:
-            if type(data) is not list:
+            if not isinstance(data, list):
                 raise TypeError("data must be a list")
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
-            n = len(data)
-            p = sum(data) / len(data)
+
+            mean = sum(data) / len(data)
+            variance = sum((x - mean) ** 2 for x in data) / len(data)
+
+            p = 1 - (variance / mean)
+            n = round(mean / p)
+            p = mean / n
+
+            self.n = n
+            self.p = float(p)
+        else:
+            if n <= 0:
+                raise ValueError("n must be a positive value")
+            if not (0 < p < 1):
+                raise ValueError("p must be greater than 0 and less than 1")
+
+            self.n = int(n)
+            self.p = float(p)
