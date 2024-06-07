@@ -54,5 +54,5 @@ class Binomial:
         factorial_n_k = 1
         for i in range(1, self.n - k + 1):
             factorial_n_k *= i
-        return (factorial_n /
-                (factorial_k * factorial_n_k)) * (self.p ** k) * ((1 - self.p) ** (self.n - k))
+        coefficient = factorial_n / (factorial_k * factorial_n_k)
+        return coefficient * (self.p ** k) * ((1 - self.p) ** (self.n - k))
