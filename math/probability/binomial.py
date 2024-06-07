@@ -31,7 +31,7 @@ class Binomial:
 
             self.n = int(n)
             self.p = float(p)
-    
+
     def pmf(self, k):
         """Calculates the value of the PMF for a given number of successes
 
