@@ -89,12 +89,3 @@ class Normal:
         """
         z = self.z_score(x) / (2 ** 0.5)
         return (1 + self.erf(z)) / 2
-
-
-# Example usage:
-nd = Normal(data=[2, 4, 4, 4, 5, 5, 7, 9])
-print("Mean:", nd.mean)  # Output: Mean: 5.0
-print("Standard Deviation:", nd.stddev)  # Output: Standard Deviation: 2.0
-
-# Calculate CDF for x = 5
-print("CDF at x=5:", nd.cdf(5))  # Expected to be approximately 0.5
