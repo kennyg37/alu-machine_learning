@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-import numpy as np
-""" This code calculates the mean and covariance of a data set 
+""" This code calculates the mean and covariance of a data set
     using numpy. The code includes a function mean_cov(X) that
     calculates the mean and covariance of a data set.
 """
+import numpy as np
 
 
 def mean_cov(X):
