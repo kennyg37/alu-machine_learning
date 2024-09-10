@@ -63,7 +63,7 @@ class Neuron:
         m: is the number of examples
         Y: is a numpy.ndarray with shape (1, m) that contains the correct
         labels for the input data
-        Returns the neuron’s prediction and the cost of the network, respectively
+        Returns the neuron’s prediction and the cost, respectively
             The prediction should be a numpy.ndarray with shape (1, m)
             containing the predicted labels for each example
             The label values should be 1 if the output of the network is >= 0.5
