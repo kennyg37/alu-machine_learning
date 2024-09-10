@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-import numpy as np
+
 """ 
 simplest neural network with no hidden layer
 
 """
+
+import numpy as np
+
 
 class Neuron:
     """
@@ -16,12 +19,13 @@ class Neuron:
         The weights vector W and bias b for the neuron are initialized using random normal distribution
             The bias b is initialized to 0
     """
+
     def __init__(self, nx):
         self.nx = nx
         self.W = np.random.randn(1, nx)
         self.b = 0
         self.A = 0
-        
+
         if not isinstance(nx, int):
             raise TypeError('nx must be an integer')
         if nx < 1:
