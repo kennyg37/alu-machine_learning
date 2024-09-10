@@ -1,0 +1,1 @@
+This is the classification directory with code that implements basic NN structure
