@@ -16,7 +16,7 @@ class Neuron:
         If nx is not an integer, raise a TypeError: nx must be an integer
         If nx is less than 1, raise a ValueError nx must be a positive integer
         All exceptions should be raised in the order listed
-        The weights vector W and bias b for the neuron are 
+        The weights vector W and bias b for the neuron are
         initialized using random normal distribution
             The bias b is initialized to 0
     """
