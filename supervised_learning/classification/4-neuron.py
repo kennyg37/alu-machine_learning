@@ -55,7 +55,7 @@ class Neuron:
         """
         m = Y.shape[1]
         return -1 / m * np.sum(Y * np.log(A) + (1 - Y) * np.log(1.0000001 - A))
-    
+
     def evaluate(self, X, Y):
         """
         Evaluates the neuron’s predictions
