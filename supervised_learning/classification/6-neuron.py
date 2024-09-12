@@ -96,12 +96,13 @@ class Neuron:
         """
         Trains the neuron
         X: is a numpy.ndarray with shape (nx, m) that contains the input data
-        Y: is a numpy.ndarray with shape (1, m) that contains the correct labels
+        Y: is a numpy.ndarray with shape (1, m)containing the correct labels
         for the input data
         iterations: is the number of iterations to train over
         alpha: is the learning rate
         Updates the private attributes __W, __b, and __A
-        Returns the evaluation of the training data after iterations of training
+        Returns the evaluation of the training
+        data after training iterarions
         """
         if not isinstance(iterations, int):
             raise TypeError('iterations must be an integer')
