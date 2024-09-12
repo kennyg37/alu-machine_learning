@@ -104,16 +104,15 @@ class Neuron:
         Returns the evaluation of the training
         data after training iterarions
         """
+        if not isinstance(alpha, (int, float)):
+            raise TypeError('alpha must be a number')
+        if alpha <= 0:
+            raise ValueError('alpha must be positive')
         if not isinstance(iterations, int):
             raise TypeError('iterations must be an integer')
         if iterations < 1:
             raise ValueError('iterations must be a positive integer')
-        if not isinstance(alpha, float):
-            raise TypeError('alpha must be a number')
-        if not isinstance(alpha, int):
-            raise TypeError('alpha must be a number')
-        if alpha <= 0:
-            raise ValueError('alpha must be positive')
+        
 
         for i in range(iterations):
             self.__A = self.forward_prop(X)
