@@ -78,7 +78,7 @@ class Neuron:
         """
         Calculates one pass of gradient descent on the neuron
         X: is a numpy.ndarray with shape (nx, m) that contains the input data
-        Y: is a numpy.ndarray with shape (1, m) that contains the correct labels
+        Y: is a numpy.ndarray with shape (1, m) containing correct labels
         for the input data
         A: is a numpy.ndarray with shape (1, m) containing the activated output
         of the neuron for each example
