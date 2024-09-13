@@ -43,10 +43,52 @@ class NeuralNetwork:
         if nodes < 1:
             raise ValueError('nodes must be a positive integer')
 
-        self.__W1 = np.random.randn(nodes, nx)
-        self.__b1 = np.zeros((nodes, 1))
-        self.__A1 = 0
+        self.W1 = np.random.randn(nodes, nx)
+        self.b1 = np.zeros((nodes, 1))
+        self.A1 = 0
 
-        self.__W2 = np.random.randn(1, nodes)
-        self.__b2 = 0
-        self.__A2 = 0
+        self.W2 = np.random.randn(1, nodes)
+        self.b2 = 0
+        self.A2 = 0
+
+    @property
+    def W1(self):
+        """
+        returns private instance attribute __W1
+        """
+        return self.__W1
+
+    @property
+    def b1(self):
+        """
+        returns private instance attribute __b1
+        """
+        return self.__b1
+
+    @property
+    def A1(self):
+        """
+        returns private instance attribute __A1
+        """
+        return self.__A1
+
+    @property
+    def W2(self):
+        """
+        returns private instance attribute __W2
+        """
+        return self.__W2
+
+    @property
+    def b2(self):
+        """
+        returns private instance attribute __b2
+        """
+        return self.__b2
+
+    @property
+    def A2(self):
+        """
+        returns private instance attribute __A2
+        """
+        return self.__A2
