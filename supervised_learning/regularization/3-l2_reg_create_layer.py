@@ -1,33 +1,29 @@
 #!/usr/bin/env python3
-""" Implements reg_create_layer
 """
+Creates a layer that includes L2 regularization
+usinf TensorFlow
+"""
+
+
 import tensorflow as tf
 
 
-def l2_reg_create_layer(prev, n, activation, lam):
-    """ Creates a tensorflow layer that includes l2
-    regularization
+def l2_reg_create_layer(prev, n, activation, lambtha):
+    """
+    Creates a TensorFlow layer that includes L2 regularization.
 
     Parameters:
-    prev (tensorflow.Tensor) Tensor containing the
-    output of the previous layer.
-
-    n (int) number of neurons that this layer should
-    contain.
-
-    activation (function) the activation function that
-    the layer should use
-
-    lam (float) the l2 regularization parameter that
-    determines the strength of the regularization term.
+    prev -- tensor containing the output of the previous layer
+    n -- number of nodes the new layer should contain
+    activation -- activation function that should be used on the layer
+    lambtha -- L2 regularization parameter
 
     Returns:
-    tensorflow.Tensor: the layer created
+    The output of the new layer
     """
-    initializer = tf.contrib.layers.variance_scaling_initializer(
-        mode="FAN_AVG")
-    regularizer = tf.contrib.layers.l2_regularizer(lam)
-
-    return tf.layers.Dense(n, activation=activation,
-                           kernel_initializer=initializer,
-                           kernel_regularizer=regularizer)(prev)
+    kernel = tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
+    reg = tf.contrib.layers.l2_regularizer(lambtha)
+    layer = tf.layers.Dense(n, activation=activation,
+                            kernel_initializer=kernel,
+                            kernel_regularizer=reg)
+    return layer(prev)

@@ -1,26 +1,23 @@
 #!/usr/bin/env python3
-""" Implements normalization_constants
 """
+normalizes (standardizes) a matrix
+"""
+
+import numpy as np
 
 
 def normalize(X, m, s):
-    """ Normalises the input data using the provided
-    mean and standard deviation.
+    """
+    Normalizes (standardizes) a matrix.
 
     Args:
-    X (numpy.ndarray) An array of features in the shape
-    (d, nx) where d is the number of data points and nx
-    is the number of input features.
-
-    m (numpy.ndarray) An array of means for each feature
-    in the shape (nx,) where nx is the number of features.
-
-    s (numpy.ndarray) An array of standard deviations of
-    each feature in the shape (nx,) where nx is the
-    number of features.
+        X (np.ndarray): The input data of shape (m, nx) where
+        m is the number of data points and
+        nx is the number of features.
+        m (np.ndarray): The mean of all the features of X.
+        s (np.ndarray): The standard deviation of all the features of X.
 
     Returns:
-    numpy.ndarray: X normalised by the mean and standard
-    deviation
+        The normalized X matrix.
     """
     return (X - m) / s

@@ -1,2 +1,1 @@
-# Optimisation
-hyperparameters and all that
+Optimization readme.
